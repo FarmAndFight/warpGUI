@@ -1,0 +1,16 @@
+name: warpGui
+main: fr.topeka.warpgui.Main
+version: 1.0
+author: Topeka_
+api-version: 1.14
+commands:
+  warp:
+    description: warp command
+    usage: /warp
+    permission: warpgui.warp.use
+    permission-message: You haven't access to this command
+  lobby:
+    description: lobby command
+    usage: /lobby
+    permission: warpgui.lobby.use
+    permission-message: You haven't access to this command
