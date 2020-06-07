@@ -1,4 +1,4 @@
-package fr.topeka.warpgui;
+package topeka.warpgui;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -8,8 +8,8 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
-import fr.topeka.warpgui.inventory.InvElement;
-import fr.topeka.warpgui.inventory.InventoryGui;
+import topeka.warpgui.inventory.InvElement;
+import topeka.warpgui.inventory.InventoryGui;
 
 public class EventListener implements Listener {
 

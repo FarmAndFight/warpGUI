@@ -1,17 +1,19 @@
-package fr.topeka.warpgui;
+package topeka.warpgui;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import fr.topeka.warpgui.command.CommandInv;
-import fr.topeka.warpgui.inventory.InventoryGui;
+import topeka.warpgui.command.CommandInv;
+import topeka.warpgui.inventory.InventoryGui;
 
 public class Main extends JavaPlugin{
 
-	private InventoryGui warp = new InventoryGui(), lobby = new InventoryGui();
+	private InventoryGui warp = new InventoryGui("warp"), lobby = new InventoryGui("lobby");
 	public Config config = new Config(this);
+	private static Main instance;
 	
 	@Override
 	public void onEnable() {
+		instance = this;
 		saveDefaultConfig();
 		config.load();
 		CommandInv commandinv = new CommandInv(this);
@@ -22,6 +24,7 @@ public class Main extends JavaPlugin{
 //		getCommand("vote").setExecutor(null);
 //		getCommand("voteadmin").setExecutor(null);
 		getServer().getPluginManager().registerEvents(new EventListener(this), this);
+        getServer().getMessenger().registerOutgoingPluginChannel( this, "BungeeCord" ); // Register the outgoing channel, to Bungee
 	}
 	
 	public InventoryGui getWarp(){
@@ -38,6 +41,10 @@ public class Main extends JavaPlugin{
 	
 	public void setLobby(InventoryGui lobby) {
 		this.lobby = lobby;
+	}
+	
+	public static Main getInstance() {
+		return instance;
 	}
 	
 }

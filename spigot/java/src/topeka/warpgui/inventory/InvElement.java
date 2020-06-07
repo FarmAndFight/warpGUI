@@ -1,4 +1,4 @@
-package fr.topeka.warpgui.inventory;
+package topeka.warpgui.inventory;
 
 import java.util.List;
 
@@ -8,13 +8,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import topeka.warpgui.BungeeChannel;
+
 public class InvElement {
 
 	private int position;
 	private ItemStack item;
-	private String command;
+	private List<String> command;
 	
-	public InvElement(Material material, String title, List<String> description, int position, String command) {
+	public InvElement(Material material, String title, List<String> description, int position, List<String> list) {
 		if(material != null)
 			item = new ItemStack(material);
 		else
@@ -24,7 +26,7 @@ public class InvElement {
 		meta.setLore(description);
 		item.setItemMeta(meta);
 		this.position = position;
-		this.command = command;
+		this.command = list;
 	}
 	
 	public ItemStack getItem() {
@@ -36,6 +38,15 @@ public class InvElement {
 	}
 	
 	public void execCommand(Player player) {
-		Bukkit.dispatchCommand(player, command.replace("{PLAYER}", player.getName()));
+		for(String s : command) {
+			s = s.replace("{PLAYER}", player.getName());
+			if(!s.contains("[BungeeCord]")) {
+				player.sendMessage("Server: " + s);
+				Bukkit.dispatchCommand(player, s);
+			}else {
+				player.sendMessage("bungee: " + s.substring(13));
+				BungeeChannel.getInstance().execCommandBungee(player, s.substring(13));
+			}
+		}
 	}
 }

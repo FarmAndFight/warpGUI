@@ -1,4 +1,4 @@
-package fr.topeka.warpgui.command;
+package topeka.warpgui.command;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -7,8 +7,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import fr.topeka.warpgui.Main;
-import fr.topeka.warpgui.inventory.InventoryGui;
+import topeka.warpgui.Main;
+import topeka.warpgui.inventory.InventoryGui;
 
 public class CommandInv implements CommandExecutor {
 

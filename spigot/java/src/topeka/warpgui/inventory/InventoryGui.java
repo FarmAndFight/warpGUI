@@ -1,4 +1,4 @@
-package fr.topeka.warpgui.inventory;
+package topeka.warpgui.inventory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +9,16 @@ import org.bukkit.inventory.Inventory;
 
 public class InventoryGui {
 
-	private Inventory inv;
+	private Inventory inv = null;
 	private List<InvElement> elements = new ArrayList<>();
 	private int invSize = 9; 
+	private String _title;
 	
-	public void createInventory(String title) {
+	public InventoryGui(String title) {
+		_title = title;
+	}
+	
+	public void createInventory() {
 		int max = 0;
 		for(InvElement e : elements) {
 			if(e.getPosition() > max)
@@ -24,7 +29,7 @@ public class InventoryGui {
 		}
 		if(invSize > 54)
 			invSize = 54;
-		inv = Bukkit.createInventory(null, invSize, title);
+		inv = Bukkit.createInventory(null, invSize, _title);
 		for(InvElement e : elements) {
 			inv.setItem(e.getPosition(), e.getItem());
 		}
@@ -32,6 +37,8 @@ public class InventoryGui {
 	
 	public void displayInventory(Player player) {
 		player.closeInventory();
+		if(inv == null)
+			createInventory();
 		player.openInventory(inv);
 	}
 	

@@ -1,4 +1,4 @@
-package fr.topeka.warpgui.command;
+package topeka.warpgui.command;
 
 public class CommandInvAdmin {
 

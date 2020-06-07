@@ -1,5 +1,5 @@
 name: warpGui
-main: fr.topeka.warpgui.Main
+main: topeka.warpgui.Main
 version: 1.0
 author: Topeka_
 api-version: 1.14
