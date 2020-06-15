@@ -13,9 +13,9 @@ import topeka.warpgui.inventory.InventoryGui;
 
 public class EventListener implements Listener {
 
-	private Main main;
+	private WarpGuiSpigot main;
 
-	public EventListener(Main main) {
+	public EventListener(WarpGuiSpigot main) {
 		this.main = main;
 	}
 	

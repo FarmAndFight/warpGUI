@@ -5,11 +5,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import topeka.warpgui.command.CommandInv;
 import topeka.warpgui.inventory.InventoryGui;
 
-public class Main extends JavaPlugin{
+public class WarpGuiSpigot extends JavaPlugin{
 
 	private InventoryGui warp = new InventoryGui("warp"), lobby = new InventoryGui("lobby");
 	public Config config = new Config(this);
-	private static Main instance;
+	private static WarpGuiSpigot instance;
 	
 	@Override
 	public void onEnable() {
@@ -43,7 +43,7 @@ public class Main extends JavaPlugin{
 		this.lobby = lobby;
 	}
 	
-	public static Main getInstance() {
+	public static WarpGuiSpigot getInstance() {
 		return instance;
 	}
 	

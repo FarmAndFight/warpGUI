@@ -10,9 +10,9 @@ import topeka.warpgui.inventory.InventoryGui;
 
 public class Config {
 
-	private Main main;
+	private WarpGuiSpigot main;
 
-	public Config(Main main) {
+	public Config(WarpGuiSpigot main) {
 		this.main = main;
 	}
 

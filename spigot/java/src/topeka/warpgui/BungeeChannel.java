@@ -20,7 +20,7 @@ public class BungeeChannel{
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF("_warpGui");
 		out.writeUTF(command);
-		player.sendPluginMessage(Main.getInstance(), "BungeeCord", out.toByteArray());
+		player.sendPluginMessage(WarpGuiSpigot.getInstance(), "BungeeCord", out.toByteArray());
 	}
 	
 	

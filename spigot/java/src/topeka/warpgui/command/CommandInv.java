@@ -7,14 +7,14 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import topeka.warpgui.Main;
+import topeka.warpgui.WarpGuiSpigot;
 import topeka.warpgui.inventory.InventoryGui;
 
 public class CommandInv implements CommandExecutor {
 
-	private Main main;
+	private WarpGuiSpigot main;
 
-	public CommandInv(Main main) {
+	public CommandInv(WarpGuiSpigot main) {
 		this.main = main;
 	}
 

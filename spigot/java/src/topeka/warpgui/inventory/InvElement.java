@@ -41,10 +41,8 @@ public class InvElement {
 		for(String s : command) {
 			s = s.replace("{PLAYER}", player.getName());
 			if(!s.contains("[BungeeCord]")) {
-				player.sendMessage("Server: " + s);
 				Bukkit.dispatchCommand(player, s);
 			}else {
-				player.sendMessage("bungee: " + s.substring(13));
 				BungeeChannel.getInstance().execCommandBungee(player, s.substring(13));
 			}
 		}

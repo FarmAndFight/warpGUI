@@ -3,7 +3,7 @@ package topeka.warpgui;
 import net.md_5.bungee.BungeeCord;
 import net.md_5.bungee.api.plugin.Plugin;
 
-public class WarpGui extends Plugin{
+public class WarpGuiBungee extends Plugin{
 
 	@Override
 	public void onEnable() {
