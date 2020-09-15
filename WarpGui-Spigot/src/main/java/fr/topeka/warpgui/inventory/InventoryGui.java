@@ -40,6 +40,7 @@ public class InventoryGui {
 		if(inv == null)
 			createInventory();
 		player.openInventory(inv);
+		
 	}
 	
 	public List<InvElement> getElements() {

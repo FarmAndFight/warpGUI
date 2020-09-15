@@ -9,7 +9,7 @@
 
     <artifactId>WarpGui-Bungee</artifactId>
     <packaging>jar</packaging>
-    <name>WarpGui-Spigot</name>
+    <name>WarpGui-Bungee</name>
     <description>${project.parent.description}</description>
     <build>
       <sourceDirectory>src/main/java</sourceDirectory>

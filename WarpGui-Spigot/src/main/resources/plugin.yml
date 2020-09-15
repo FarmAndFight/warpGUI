@@ -1,8 +1,8 @@
-name: warpGui
-main: topeka.warpgui.WarpGuiSpigot
-version: 1.0
+name: ${project.name}
+main: ${project.groupId}.WarpGuiSpigot
+version: ${project.version}
 author: Topeka_
-api-version: 1.14
+api-version: 1.16
 commands:
   warp:
     description: warp command
