@@ -18,11 +18,8 @@ public class WarpGuiSpigot extends JavaPlugin{
 		config.load();
 		CommandInv commandinv = new CommandInv(this);
 		getCommand("warp").setExecutor(commandinv);
-//		getCommand("warpadmin").setExecutor(null);
 		getCommand("lobby").setExecutor(commandinv);
-//		getCommand("lobbyadmin").setExecutor(null);
-//		getCommand("vote").setExecutor(null);
-//		getCommand("voteadmin").setExecutor(null);
+		
 		getServer().getPluginManager().registerEvents(new EventListener(this), this);
         getServer().getMessenger().registerOutgoingPluginChannel( this, "BungeeCord" ); // Register the outgoing channel, to Bungee
 	}
