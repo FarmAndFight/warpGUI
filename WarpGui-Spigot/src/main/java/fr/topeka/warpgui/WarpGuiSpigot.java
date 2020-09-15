@@ -9,9 +9,9 @@ import fr.topeka.warpgui.inventory.InventoryGui;
 
 public class WarpGuiSpigot extends JavaPlugin{
 
-	private InventoryGui warp = new InventoryGui("warp"), lobby = new InventoryGui("lobby");
 	public Config config = new Config(this);
 	private static WarpGuiSpigot instance;
+	private static boolean useBungeecord;
 	public HashMap<String, InventoryGui> gui = new HashMap<>();
 	
 	@Override
@@ -22,29 +22,22 @@ public class WarpGuiSpigot extends JavaPlugin{
 		CommandInv commandinv = new CommandInv(this);
 		getCommand("warp").setExecutor(commandinv);
 		getCommand("lobby").setExecutor(commandinv);
-		
 		getServer().getPluginManager().registerEvents(new EventListener(this), this);
-        getServer().getMessenger().registerOutgoingPluginChannel( this, "BungeeCord" ); // Register the outgoing channel, to Bungee
-	}
-	
-	public InventoryGui getWarp(){
-		return warp;
-	}
-	
-	public InventoryGui getLobby(){
-		return lobby;
-	}
-	
-	public void setWarp(InventoryGui warp) {
-		this.warp = warp;
-	}
-	
-	public void setLobby(InventoryGui lobby) {
-		this.lobby = lobby;
+		if(useBungeecord) {
+			getServer().getMessenger().registerOutgoingPluginChannel( this, "BungeeCord" ); // Register the outgoing channel, to Bungee
+		}
 	}
 	
 	public static WarpGuiSpigot getInstance() {
 		return instance;
+	}
+
+	public boolean getBungeecord() {
+		return useBungeecord;
+	}
+	
+	public void setBungeecord(boolean b) {
+		useBungeecord = b;
 	}
 	
 }

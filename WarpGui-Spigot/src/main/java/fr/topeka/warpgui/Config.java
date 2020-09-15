@@ -17,8 +17,18 @@ public class Config {
 
 	public void load() {
 		FileConfiguration file = main.getConfig();
+		main.setBungeecord(file.getBoolean("use-bungeecord", false));
 		loadGui("warp", file);
 		loadGui("lobby", file);
+		if(main.getBungeecord()) {
+			try {
+				// reseting channel
+				main.getServer().getMessenger().unregisterOutgoingPluginChannel(main, "BungeeCord");
+				main.getServer().getMessenger().registerOutgoingPluginChannel(main, "BungeeCord");
+			}catch(IllegalArgumentException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	private void loadGui(String label, FileConfiguration file) {
@@ -30,7 +40,7 @@ public class Config {
 			i++;
 		}
 		inv.createInventory();
-		WarpGuiSpigot.getInstance().gui.put(label, inv);
+		main.gui.put(label, inv);
 	}
 	
 }

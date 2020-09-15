@@ -1,3 +1,4 @@
+use-bungeecord: false
 warp:
   0:
     Material: BEDROCK
