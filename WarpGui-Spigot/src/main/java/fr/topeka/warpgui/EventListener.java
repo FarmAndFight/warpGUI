@@ -19,16 +19,14 @@ public class EventListener implements Listener {
 	
 	@EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 	public void onInventoryClickEvent(InventoryClickEvent event) {
-		if(event.isLeftClick()) {
-			int slot = event.getSlot();
-			String title = event.getView().getTitle();
-			if(title.equals("Warp") || title.equals("Lobby")) {
-				InvElement element = main.gui.get(title.toLowerCase()).getClickedItem(slot);
-				if(element != null) {
-					if(event.getWhoClicked() instanceof Player) {
-						event.setCancelled(true);
-						element.execCommand((Player) event.getWhoClicked());
-					}
+		int slot = event.getSlot();
+		String title = event.getView().getTitle();
+		if(title.equals("Warp") || title.equals("Lobby")) {
+			InvElement element = main.gui.get(title.toLowerCase()).getClickedItem(slot);
+			if(element != null) {
+				if(event.getWhoClicked() instanceof Player) {
+					event.setCancelled(true);
+					element.execCommand((Player) event.getWhoClicked());
 				}
 			}
 		}
