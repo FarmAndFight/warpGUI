@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fr.topeka.warpgui</groupId>
   <artifactId>WarpGui</artifactId>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>1.2.0</version>
   <name>WarpGui</name>
   <packaging>pom</packaging>
   <description>Execute command with WarpGui</description>
