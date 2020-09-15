@@ -1,14 +1,12 @@
-package topeka.warpgui.command;
-
-import java.lang.reflect.InvocationTargetException;
+package fr.topeka.warpgui.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import topeka.warpgui.WarpGuiSpigot;
-import topeka.warpgui.inventory.InventoryGui;
+import fr.topeka.warpgui.WarpGuiSpigot;
+import fr.topeka.warpgui.inventory.InventoryGui;
 
 public class CommandInv implements CommandExecutor {
 
@@ -28,15 +26,12 @@ public class CommandInv implements CommandExecutor {
 		}
 		if(sender instanceof Player) {
 			Player player = (Player) sender;
-			String command = Character.toUpperCase(label.charAt(0)) + label.substring(1);
-			try {
-				InventoryGui inv = (InventoryGui) main.getClass().getMethod("get" + command).invoke(main);
-				inv.displayInventory(player);
+			InventoryGui gui = WarpGuiSpigot.getInstance().gui.get(label);
+			if(gui != null) {
+				gui.displayInventory(player);
 				return true;
-			} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
-				e.printStackTrace();
-				return false;
 			}
+			return false;
 		}
 		sender.sendMessage("This is a player-only command");
 		return true;

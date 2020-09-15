@@ -1,0 +1,5 @@
+name: ${project.name}
+main: ${project.groupId}.WarpGuiBungee
+version: ${project.version}
+author: Topeka_
+api-version: 1.16

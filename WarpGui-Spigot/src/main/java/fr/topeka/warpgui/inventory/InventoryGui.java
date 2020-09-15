@@ -1,4 +1,4 @@
-package topeka.warpgui.inventory;
+package fr.topeka.warpgui.inventory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,7 @@ public class InventoryGui {
 		if(inv == null)
 			createInventory();
 		player.openInventory(inv);
+		
 	}
 	
 	public List<InvElement> getElements() {
