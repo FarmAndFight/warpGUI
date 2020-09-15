@@ -1,15 +1,18 @@
-package topeka.warpgui;
+package fr.topeka.warpgui;
+
+import java.util.HashMap;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import topeka.warpgui.command.CommandInv;
-import topeka.warpgui.inventory.InventoryGui;
+import fr.topeka.warpgui.command.CommandInv;
+import fr.topeka.warpgui.inventory.InventoryGui;
 
 public class WarpGuiSpigot extends JavaPlugin{
 
 	private InventoryGui warp = new InventoryGui("warp"), lobby = new InventoryGui("lobby");
 	public Config config = new Config(this);
 	private static WarpGuiSpigot instance;
+	public HashMap<String, InventoryGui> gui = new HashMap<>();
 	
 	@Override
 	public void onEnable() {

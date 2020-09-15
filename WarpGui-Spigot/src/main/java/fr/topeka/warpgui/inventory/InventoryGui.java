@@ -1,4 +1,4 @@
-package topeka.warpgui.inventory;
+package fr.topeka.warpgui.inventory;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package topeka.warpgui.inventory;
+package fr.topeka.warpgui.inventory;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import topeka.warpgui.BungeeChannel;
+import fr.topeka.warpgui.BungeeChannel;
 
 public class InvElement {
 
@@ -40,10 +40,12 @@ public class InvElement {
 	public void execCommand(Player player) {
 		for(String s : command) {
 			s = s.replace("{PLAYER}", player.getName());
-			if(!s.contains("[BungeeCord]")) {
-				Bukkit.dispatchCommand(player, s);
-			}else {
+			if(s.startsWith("[BungeeCord]")) {
 				BungeeChannel.getInstance().execCommandBungee(player, s.substring(13));
+			}else if(s.startsWith("[Server]")) {
+				BungeeChannel.getInstance().changePlayerServer(player, s.substring(9));
+			}else {
+				Bukkit.dispatchCommand(player, s);
 			}
 		}
 	}
